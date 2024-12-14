@@ -370,7 +370,7 @@ INPUT_KEYS = 0
 ######
 
 def initialize_Game(surface):
-    global BLOCK, BLOCK_TEXTURE, START_TICK, GRAVITY_TICK, INPUT_KEYS, BGM_INDEX, GRAVITY_DELTA, GRAVITY_LEVEL, CURRENT_LEVEL, SURFACE
+    global BLOCK, BLOCK_TEXTURE, START_TICK, GRAVITY_TICK, INPUT_KEYS, BGM_INDEX, GRAVITY_DELTA, GRAVITY_LEVEL, CURRENT_LEVEL, SURFACE, getTicksLastFrame
     RELOAD_SETTINGS()
     SURFACE = surface
     if BLOCK is None:
@@ -381,7 +381,7 @@ def initialize_Game(surface):
     counter = 0
     retry()
     START_TICK = pygame.time.get_ticks()
-    getTicksLastFrame = 0
+    getTicksLastFrame = pygame.time.get_ticks()
     pygame.mixer.music.load(BACKGROUND_MUSICS[BGM_INDEX])
     pygame.mixer.music.play()
     while True:
