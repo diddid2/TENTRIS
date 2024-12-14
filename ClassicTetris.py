@@ -311,7 +311,6 @@ KEY_STATE = { K_UP: False, K_DOWN: False, K_LEFT: False, K_RIGHT: False }
 FIELD = [[0 for _ in range(WIDTH)] for _ in range(HEIGHT)]
 
 pygame.init()
-pygame.display.set_caption('Tetris Classic')
 SURFACE = pygame.display.set_mode((1920, 1080))
 FPS_CLOCK = pygame.time.Clock()
 BLOCK = None
@@ -571,7 +570,7 @@ def initialize_Game(surface):
         FPS_CLOCK.tick(SETTINGS['VIDEO'].getValue('MAX FRAME'))
 
 def RELOAD_SETTINGS():
-    global LOADED_TEXTURES, BLOCK_TEXTURE, TEXTURE_WIDTH, TEXTURE_HEIGHT, X_OFFSET, Y_OFFSET, BACKGROUND_INDEX
+    global LOADED_TEXTURES, BLOCK_TEXTURE, TEXTURE_WIDTH, TEXTURE_HEIGHT, X_OFFSET, Y_OFFSET, BACKGROUND_INDEX, PREVIEW_TEXTURE
     for sfx in SFX.values():
         sfx.set_volume(SETTINGS['VOLUME & AUDIO'].getValue('SFX') / 100)
     BACKGROUND_INDEX = random.randint(0, len(BACKGROUNDS) - 1)
@@ -595,6 +594,7 @@ def RELOAD_SETTINGS():
             cnt += 1
         LOADED_TEXTURES[SKIN_CODE]['SHADOW'].set_alpha(2.56 * SETTINGS['GAMEPLAY'].getValue('SHADOW VISIBILITY'))
     BLOCK_TEXTURE = LOADED_TEXTURES[SKIN_SORT[Material.CURRENT_SKIN_INDEX]]
+    PREVIEW_TEXTURE = PREVIEW_TEXTURES[SKIN_SORT[Material.CURRENT_SKIN_INDEX]]
 
 if __name__ == '__main__':
     initialize_Game(SURFACE)

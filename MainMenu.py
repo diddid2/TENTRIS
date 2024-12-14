@@ -1,3 +1,5 @@
+import pygame.display
+
 import ClassicTetris
 import TenbyTen
 import Tentris
@@ -230,6 +232,8 @@ MOUSE_ECP = (-1,-1) #END_CLICK_POINT
 def main():
     global MOUSE_FCP, MOUSE_ECP, CURRENT_INPUT
     pygame.mixer.music.play(loops=-1)
+    pygame.display.set_icon(TITLE_ASSETS['TENTRIS_ICON'])
+    pygame.display.set_caption('TENTRIS')
     while True:
         MOUSE_ECP = (-1,-1)
         for event in pygame.event.get():

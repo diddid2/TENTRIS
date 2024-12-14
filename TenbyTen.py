@@ -426,12 +426,12 @@ def DRAW_COUNT_BOARD():
 
 #Debug Module
 def retry():
-    global BAG, BLOCK, SWITCH_BLOCK, WARN, START_TICK, DROPED_PIECE, INPUT_KEYS
+    global BAG, BLOCK, SWITCH_BLOCK, WARN, START_TICK, DROPED_PIECE, INPUT_KEYS, current_cnt
     BAG = []
     SWITCH_BLOCK = None
     WARN = False
     START_TICK = pygame.time.get_ticks()
-    DROPED_PIECE = INPUT_KEYS = 0
+    current_cnt = DROPED_PIECE = INPUT_KEYS = 0
     COUNT_BOARD['INPUTS'] = str(INPUT_KEYS) + ', ' + str(format(INPUT_KEYS / (DROPED_PIECE + 1), '0.2f')) + '/P'
     for ypos in range(HEIGHT):
         for xpos in range(WIDTH):
@@ -546,7 +546,7 @@ def initialize_Game(surface):
         FPS_CLOCK.tick(SETTINGS['VIDEO'].getValue('MAX FRAME'))
 
 def RELOAD_SETTINGS():
-    global LOADED_TEXTURES, BLOCK_TEXTURE, TEXTURE_WIDTH, TEXTURE_HEIGHT, X_OFFSET, Y_OFFSET, BACKGROUND_INDEX
+    global LOADED_TEXTURES, BLOCK_TEXTURE, TEXTURE_WIDTH, TEXTURE_HEIGHT, X_OFFSET, Y_OFFSET, BACKGROUND_INDEX, PREVIEW_TEXTURE
     for sfx in SFX.values():
         sfx.set_volume(SETTINGS['VOLUME & AUDIO'].getValue('SFX') / 100)
     BACKGROUND_INDEX = random.randint(0, len(BACKGROUNDS) - 1)
@@ -570,6 +570,6 @@ def RELOAD_SETTINGS():
             cnt += 1
         LOADED_TEXTURES[SKIN_CODE]['SHADOW'].set_alpha(2.56 * SETTINGS['GAMEPLAY'].getValue('SHADOW VISIBILITY'))
     BLOCK_TEXTURE = LOADED_TEXTURES[SKIN_SORT[Material.CURRENT_SKIN_INDEX]]
-
+    PREVIEW_TEXTURE = PREVIEW_TEXTURES[SKIN_SORT[Material.CURRENT_SKIN_INDEX]]
 if __name__ == '__main__':
     initialize_Game(SURFACE)
