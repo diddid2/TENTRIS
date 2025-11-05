@@ -1,5 +1,5 @@
 # TENTRIS<br/>
-유튜브 링크 : https://youtu.be/GYiCiuWKkdc?si=Z0k1Am_jhIcHjMJ0
+유튜브 링크 : https://youtu.be/GYiCiuWKkdc?si=Z0k1Am_jhIcHjMJ0<br/>
 강남대학교 파이썬 응용 팀프로젝트 과제물입니다.<br/>
 기본 실행 파일 : MainMenu.py (TenbyTen.py, Tentris.py 단독실행 가능)<br/>
 해상도 : 1920px*1080px, 디스플레이 배율 : 100% 환경에서 제작되었습니다.<br/>
